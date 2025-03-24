@@ -1,0 +1,52 @@
+/* app.wxss */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  padding: 16px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.bg-light {
+  background-color: #f7f7f7;
+}
+
+.bg-dark {
+  background-color: #e0e0e0;
+}
+
+.checkbox {
+  display: block !important; /* 强制显示 */
+  opacity: 1 !important;
+  margin-right: 15px;
+  width: 20px;
+  height: 20px;
+}
+
+@keyframes split {
+  0% { transform: scaleY(1); }
+  50% { transform: scaleY(0.5); opacity: 0.5; }
+  100% { transform: scaleY(1); }
+}
+
+.time-slot {
+  transition: all 0.3s ease;
+}
+
+.splitting {
+  animation: split 0.3s ease-in-out;
+}
+
+.time-slot.selecting {
+  background: #f8f8f8;
+}
+
+.time-slot.selecting .slot-content {
+  border-bottom-color: #ddd;
+}

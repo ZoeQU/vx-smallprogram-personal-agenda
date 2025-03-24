@@ -1,0 +1,58 @@
+<!-- index.wxml -->
+<view class="container">
+  <view class="header">
+    <text class="title">日程表</text>
+  </view>
+
+  <scroll-view scroll-y class="schedule">
+    <block wx:for="{{timeSlots}}" wx:key="index">
+      <view 
+        class="time-slot {{item.isStartOfHour ? 'hour-start' : ''}} {{item.isEndOfHour ? 'hour-end' : ''}} {{item.isMerged ? 'merged-slot' : ''}} {{isSelecting ? 'selecting' : ''}}" 
+        style="{{item.style}}"
+        animation="{{animationData}}"
+      >
+        <!-- 勾选框 -->
+        <checkbox 
+        wx:if="{{isSelecting}}"
+        class="checkbox"
+        checked="{{selectedBlocks.includes(index)}}"
+        color="#4CAF50"
+        data-index="{{index}}"
+        bindtap="handleCheckboxTap"
+        />
+        
+        <!-- 时间块内容 -->
+        <view 
+          class="slot-content"
+          data-index="{{index}}"
+          bindtap="handleSlotTap"
+          bindlongpress="handleLongPress"
+        >
+          <text class="time-text">{{item.time}}</text>
+          <view wx:if="{{item.hasContent}}" class="content-marker"></view>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+
+  <!-- 弹窗 -->
+  <view wx:if="{{showModal}}" class="modal" bindtap="handleCloseModal">
+    <view class="modal-content" catchtap="stopPropagation">
+      <text class="modal-title">时间块详情</text>
+      <textarea
+        class="input-text"
+        placeholder="请输入内容"
+        bindinput="handleTextInput"
+        value="{{inputText}}"
+        auto-focus
+      ></textarea>
+      <button class="save-btn" bindtap="handleSaveContent">保存</button>
+    </view>
+  </view>
+
+  <!-- 选择模式工具栏 -->
+  <view wx:if="{{isSelecting}}" class="selection-toolbar">
+    <button class="btn-merge" bindtap="handleMergeSelection">合并选中项</button>
+    <button class="btn-cancel" bindtap="handleCancelSelection">取消</button>
+  </view>
+</view>

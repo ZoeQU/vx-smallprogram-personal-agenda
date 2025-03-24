@@ -1,0 +1,143 @@
+/* index.wxss */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  padding: 16px;
+  background-color: #4CAF50;
+}
+
+.title {
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.schedule {
+  flex: 1;
+  padding: 8px;
+}
+
+.time-slot {
+  display: flex;
+  align-items: center;
+  padding: 8px 15px;
+}
+
+.checkbox {
+  margin-right: 12px;
+}
+
+.slot-content {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.time-text {
+  font-size: 15px;
+  color: #333;
+}
+
+.content-marker {
+  width: 10px;
+  height: 10px;
+  background: red;
+  border-radius: 50%;
+}
+
+/* 合并相关样式 */
+.merged-slot {
+  background: #f8fff8;
+  border: 2px solid #4CAF50;
+  border-radius: 4px;
+  margin: 4px 0;
+}
+
+/* 选择模式 */
+.selecting .slot-content {
+  background: #f8f8f8;
+}
+
+.selection-toolbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  padding: 10px;
+  background: white;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+}
+
+.btn-merge {
+  flex: 1;
+  margin: 0 5px;
+  background: #4CAF50;
+  color: white;
+}
+
+.btn-cancel {
+  flex: 1;
+  margin: 0 5px;
+  background: #eee;
+  color: #666;
+}
+
+/* 弹窗样式 */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: white;
+  width: 80%;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.input-text {
+  height: 100px;
+  border: 1px solid #ddd;
+  padding: 8px;
+  margin: 10px 0;
+}
+
+.hour-start {
+  border-top: 2px solid #000 !important;
+}
+
+.hour-end {
+  border-bottom: 2px solid #000 !important;
+}
+
+
+
+checkbox .wx-checkbox-input {
+  border-color: #ccc !important;
+}
+
+checkbox .wx-checkbox-input-checked {
+  background: #4CAF50 !important;
+  border-color: #4CAF50 !important;
+}
